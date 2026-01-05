@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Button</title>
+  
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon.png">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <meta name="theme-color" content="#ffe9f3">
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffe9f3, #ffffff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Quicksand", sans-serif;
+      -webkit-tap-highlight-color: transparent; /* Removes blue tap box on mobile */
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 42px 30px; /* Adjusted padding for mobile screens */
+      border-radius: 26px;
+      box-shadow: 0 25px 45px rgba(255, 170, 200, 0.35);
+      text-align: center;
+      max-width: 440px;
+      width: 85%;
+    }
+
+    h1 {
+      color: #ff6fae;
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+      margin-top: 0;
+    }
+
+    .subtitle {
+      color: #b9b9b9;
+      font-size: 0.95rem;
+      margin-bottom: 34px;
+    }
+
+    #result {
+      min-height: 80px; /* Taller to prevent jumping text */
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #ff4f9a;
+      margin-bottom: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      line-height: 1.4;
+    }
+
+    button {
+      background: linear-gradient(135deg, #ff9fcf, #ff6fae);
+      border: none;
+      border-radius: 999px;
+      padding: 18px 40px; /* Larger touch target for phone */
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(255, 105, 180, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>girlblog button</h1>
+    <div class="subtitle">press when overwhelmed</div>
+
+    <div id="result">♡ click ♡</div>
+
+    <button onclick="pickIdea()">pick for me</button>
+  </div>
+
+  <script>
+    const ideas = [
+      "Aesthetic guides", "Aesthetic ingredients aesthetic", "1% / 10% post",
+      "Posters for media", "Photo edits", "Backgrounds", "Icons / banners",
+      "PINS", "Text-based posts", "Morning ritual cards", "Night ritual cards",
+      "Soft productivity lists", "Reset checklists", "Monthly intentions pages",
+      "New month / new era aesthetics", "Soft reset visuals", "Seasonal moodboard sets",
+      "Manifestation lists", "Affirmation cards", "Media color palettes",
+      "Scent mixes", "Scent reviews", "Fictional character scent profiles",
+      "Room scent concepts", "Memory-based scent lists",
+      "Notes breakdown cards (top / middle / base)", "Character adopts",
+      "Starter packs (4 images + text)", "Color palette cards",
+      "Mock receipts", "Routine timelines", "Things to do / things needed lists"
+    ];
+
+    function pickIdea() {
+      // Fixed the typo here: Math.random()
+      const randomIndex = Math.floor(Math.random() * ideas.length);
+      document.getElementById("result").textContent = ideas[randomIndex];
+    }
+
+    // Register Service Worker for offline use
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
+
+</body>
+</html>
