@@ -1,0 +1,20 @@
+{
+  "name": "Creative Panic Button",
+  "short_name": "PanicBtn",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffe9f3",
+  "theme_color": "#ffe9f3",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
