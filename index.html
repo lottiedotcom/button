@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Button</title>
+  <title>Girl Blog Button</title>
   
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon.png">
   <meta name="apple-mobile-web-app-status-bar-style" content="white">
-  <meta name="theme-color" content="#ffe9f3">
+  <meta name="theme-color" content="#e3f2fd">
 
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
@@ -16,42 +16,47 @@
     body {
       margin: 0;
       height: 100vh;
-      background: linear-gradient(135deg, #ffe9f3, #ffffff);
+      /* Blue to Pink Gradient Background */
+      background: linear-gradient(135deg, #e3f2fd, #ffeef8);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: "Quicksand", sans-serif;
-      -webkit-tap-highlight-color: transparent; /* Removes blue tap box on mobile */
+      -webkit-tap-highlight-color: transparent;
     }
 
     .card {
       background: #ffffff;
-      padding: 42px 30px; /* Adjusted padding for mobile screens */
+      padding: 42px 30px;
       border-radius: 26px;
-      box-shadow: 0 25px 45px rgba(255, 170, 200, 0.35);
+      /* Soft blue-ish shadow */
+      box-shadow: 0 25px 45px rgba(179, 217, 255, 0.35);
       text-align: center;
       max-width: 440px;
       width: 85%;
     }
 
     h1 {
-      color: #ff6fae;
+      /* Soft Pink Text */
+      color: #ff9ec6;
       font-size: 1.8rem;
       margin-bottom: 6px;
       margin-top: 0;
     }
 
     .subtitle {
-      color: #b9b9b9;
+      /* Soft Blue Text */
+      color: #90caf9;
       font-size: 0.95rem;
       margin-bottom: 34px;
     }
 
     #result {
-      min-height: 80px; /* Taller to prevent jumping text */
+      min-height: 80px;
       font-size: 1.25rem;
       font-weight: 600;
-      color: #ff4f9a;
+      /* Darker Pink for readability */
+      color: #ff8fab;
       margin-bottom: 34px;
       display: flex;
       align-items: center;
@@ -61,15 +66,16 @@
     }
 
     button {
-      background: linear-gradient(135deg, #ff9fcf, #ff6fae);
+      /* Blue to Pink Gradient Button */
+      background: linear-gradient(to right, #90caf9, #ffb7d2);
       border: none;
       border-radius: 999px;
-      padding: 18px 40px; /* Larger touch target for phone */
+      padding: 18px 40px;
       font-size: 1rem;
       font-weight: 600;
       color: #ffffff;
       cursor: pointer;
-      box-shadow: 0 10px 22px rgba(255, 105, 180, 0.35);
+      box-shadow: 0 10px 22px rgba(144, 202, 249, 0.4);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
@@ -81,12 +87,12 @@
 <body>
 
   <div class="card">
-    <h1>girlblog button</h1>
+    <h1>girl blog button</h1>
     <div class="subtitle">press when overwhelmed</div>
 
-    <div id="result">♡ click ♡</div>
+    <div id="result">♡ breathe, then click ♡</div>
 
-    <button onclick="pickIdea()">pick for me</button>
+    <button onclick="pickIdea()">click ᥫ᭡</button>
   </div>
 
   <script>
@@ -105,12 +111,10 @@
     ];
 
     function pickIdea() {
-      // Fixed the typo here: Math.random()
       const randomIndex = Math.floor(Math.random() * ideas.length);
       document.getElementById("result").textContent = ideas[randomIndex];
     }
 
-    // Register Service Worker for offline use
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js');
     }
